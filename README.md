@@ -1,5 +1,5 @@
 # random-user-generator
-
+[Demo](https://tanishq-rocks.github.io/random-user-generator/)
 ## Project setup
 ```
 npm install
