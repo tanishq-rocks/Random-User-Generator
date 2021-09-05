@@ -25,18 +25,25 @@ export default {
     }
   },
   methods: {
-    onGenerate(){
-      fetch('https://randomuser.me/api/')
-        .then(response => response.json())
-        .then(
-          (data) => {
-            this.username = data.results[0].name.first + data.results[0].name.last;
-            this.phone = data.results[0].phone;
-            this.email = data.results[0].email;
-            this.photo = data.results[0].picture.medium;
-            this.gender = data.results[0].gender;
-          }
-        )
+    async onGenerate(){
+      // fetch('https://randomuser.me/api/')
+      //   .then(response => response.json())
+      //   .then(
+      //     (data) => {
+      //       this.username = data.results[0].name.first + data.results[0].name.last;
+      //       this.phone = data.results[0].phone;
+      //       this.email = data.results[0].email;
+      //       this.photo = data.results[0].picture.medium;
+      //       this.gender = data.results[0].gender;
+      //     }
+      //   )
+      const response = await fetch('https://randomuser.me/api/')
+      const { results } = await response.json();
+      this.username = results[0].name.first + results[0].name.last;
+      this.phone = results[0].phone;
+      this.email = results[0].email;
+      this.photo = results[0].picture.medium;
+      this.gender = results[0].gender;
     }
   },
 }
